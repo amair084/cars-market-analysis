@@ -1,3 +1,5 @@
+# Car Listing Scraper using Cars.com - Amair084 on GitHub
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -9,9 +11,11 @@ import time
 import random
 import re
 
-# --------------------------
-# DRIVER SETUP
-# --------------------------
+# DRIVER SETUP  ----------------
+
+
+name = input("Please enter your car trim: ")
+lname = name.lower()
 
 current_dir = Path(__file__).parent
 driver_path = current_dir.parent / "chromedriver" / "chromedriver.exe"
@@ -35,18 +39,14 @@ driver.execute_script(
     "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
 )
 
-# --------------------------
-# SCRAPER SETTINGS
-# --------------------------
+# SCRAPER SETTINGS  -------
 
-base_url = "https://www.cars.com/shopping/toyota-camry/?page="
-pages_to_scrape = 5
+base_url = f"https://www.cars.com/shopping/toyota-{lname}/?page="
+pages_to_scrape = 1
 
 all_cars = []
 
-# --------------------------
-# PAGE LOOP
-# --------------------------
+# PAGE LOOP  ---------------
 
 def safe_find(element, by, value):
     try:
@@ -61,7 +61,7 @@ for page in range(1, pages_to_scrape + 1):
 
     driver.get(url)
 
-    # retry logic if page fails
+    # refresh logic if page fails
     for attempt in range(3):
         try:
 
@@ -82,9 +82,7 @@ for page in range(1, pages_to_scrape + 1):
     listings = driver.find_elements(By.CSS_SELECTOR, "[data-listing-id]")
     print("Listings found:", len(listings))
 
-    # --------------------------
-    # LISTING LOOP
-    # --------------------------
+# LISTING LOOP  ----------------
 
     for car in listings:
 
@@ -130,7 +128,7 @@ for page in range(1, pages_to_scrape + 1):
 
         link = safe_attr(By.TAG_NAME, "a", "href")
 
-        # Parse title into structured fields
+        # make title into structured fields
         year = None
         model = None
         trim = None
@@ -158,19 +156,15 @@ for page in range(1, pages_to_scrape + 1):
 
     time.sleep(random.uniform(4, 7))
 
-# --------------------------
-# CLEANUP
-# --------------------------
+# CLEANUP -----------------
 
 driver.quit()
 
-# --------------------------
-# SAVE DATA
-# --------------------------
+# SAVE DATA ----------------
 
 df = pd.DataFrame(all_cars)
 
-output_path = current_dir.parent / "data" / "camry_market_data.csv"
+output_path = current_dir.parent / "data" / f"{lname}_market_data.csv"
 output_path.parent.mkdir(exist_ok=True)
 
 df.to_csv(output_path, index=False)
