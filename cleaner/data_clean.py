@@ -3,76 +3,80 @@
 import pandas as pd
 from pathlib import Path
 
-current_dir = Path(__file__).parent
-data_path = current_dir.parent / "data"
 
-# Get Input  ----------------
+class Clean():
+    def __init__(self, name):
+        # Get Input  ----------------
+        self.name = name
+        lname = self.name.lower()
 
-name = input("Please enter your car trim: ")
+        current_dir = Path(__file__).parent
+        data_path = current_dir.parent / "data"
 
-lname = name.lower()
+        # Create Vars for csv files  ----------------
 
-# create vars for csv files  ----------------
+        corolla = pd.read_csv(data_path / "corolla_market_data.csv", encoding="utf-8", on_bad_lines="skip")
+        fourrunner = pd.read_csv(data_path / "4runner_market_data.csv", encoding="utf-8", on_bad_lines="skip")
+        camry = pd.read_csv(data_path / "camry_market_data.csv", encoding="utf-8", on_bad_lines="skip")
+        df = pd.read_csv(data_path / f"{lname}_market_data.csv", encoding="utf-8", on_bad_lines="skip")
 
-corolla = pd.read_csv(data_path / "corolla_market_data.csv", encoding="utf-8", on_bad_lines="skip")
-fourrunner = pd.read_csv(data_path / "4runner_market_data.csv", encoding="utf-8", on_bad_lines="skip")
-camry = pd.read_csv(data_path / "camry_market_data.csv", encoding="utf-8", on_bad_lines="skip")
-df = pd.read_csv(data_path / f"{lname}_market_data.csv", encoding="utf-8", on_bad_lines="skip")
+        print(df.columns)
+        print(df.head())
 
-print(df.columns)
-print(df.head())
+        # Clean Data  ----------------
 
-# Clean Data  ----------------
+        df["condition"] = df["year"]
 
-df["condition"] = df["year"]
+        df = df[[
+            "condition",
+            "year",
+            "model",
+            "trim",
+            "title",
+            "price",
+            "mileage",
+            "dealer",
+            "deal",
+            "link"
+        ]]
 
-df = df[[
-    "condition",
-    "year",
-    "model",
-    "trim",
-    "title",
-    "price",
-    "mileage",
-    "dealer",
-    "deal",
-    "link"
-]]
+        df = df.dropna(how="all")
 
-df = df.dropna(how="all")
+        df['model'] = pd.to_numeric(df['model'], errors='coerce').astype('Int64')
 
-df['model'] = pd.to_numeric(df['model'], errors='coerce').astype('Int64')
+        df["year"] = df["model"]
 
-df["year"] = df["model"]
+        df["model"] = f"{name}"
 
-df["model"] = f"{name}"
+        df.to_csv(data_path /  f"{lname}_market_data.csv", index=False)
 
-df.to_csv(data_path /  f"{lname}_market_data.csv", index=False)
-
-# Combiner  ----------------
-
-
-# df = pd.read_csv(data_path / "toyota_combined.csv", encoding="utf-8", on_bad_lines="skip")
-#
-# df["price"] = (
-#     df["price"]
-#     .astype(int)
-# )
-#
-# df["mileage"] = (
-#     df["mileage"]
-#     .astype(int)
-# )
-#
-# df["year"] = df["year"].astype(int)
-#
-# df.to_csv(data_path /  "toyota_combined.csv", index=False)
-
-print(df.head())
+        # Combiner  ----------------
 
 
-#camry["model"] = "Camry"
-#corolla["model"] = "Corolla"
-#fourrunner["model"] = "4Runner"
+        # df = pd.read_csv(data_path / "toyota_combined.csv", encoding="utf-8", on_bad_lines="skip")
+        #
+        # df["price"] = (
+        #     df["price"]
+        #     .astype(int)
+        # )
+        #
+        # df["mileage"] = (
+        #     df["mileage"]
+        #     .astype(int)
+        # )
+        #
+        # df["year"] = df["year"].astype(int)
+        #
+        # df.to_csv(data_path /  "toyota_combined.csv", index=False)
+
+        print(df.head())
 
 
+        #camry["model"] = "Camry"
+        #corolla["model"] = "Corolla"
+        #fourrunner["model"] = "4Runner"
+
+
+if __name__ == "__main__":
+    app = Clean()
+    app.mainloop()

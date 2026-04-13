@@ -1,0 +1,98 @@
+condition,year,model,trim,title,price,mileage,dealer,deal,link
+Certified,2022,2022.0,Toyota Camry SE,Certified 2022 Toyota Camry SE,"$24,981","75,148 mi.",Avondale Toyota,good-deal,https://www.cars.com/vehicledetail/01b32eec-a6b9-4542-aabd-f88c58f4e36c/?attribution_type=premier
+Certified,2025,2025.0,Toyota Camry XSE,Certified 2025 Toyota Camry XSE,"$35,488","3,990 mi.",Camelback Toyota,good-deal,https://www.cars.com/vehicledetail/20e4de08-1e22-4503-9953-785edd54f66b/
+Certified,2025,2025.0,Toyota Camry LE,Certified 2025 Toyota Camry LE,"$26,981","47,880 mi.",Avondale Toyota,good-deal,https://www.cars.com/vehicledetail/aa01d277-5f64-44fc-9f5a-778997a7e2fb/
+Used,2023,2023.0,Toyota Camry SE,Used 2023 Toyota Camry SE,"$22,520","61,290 mi.",AutoNation Toyota Tempe,good-deal,https://www.cars.com/vehicledetail/a47bffb5-18cc-488d-8468-5cd0a2a8704c/
+Certified,2025,2025.0,Toyota Camry XLE,Certified 2025 Toyota Camry XLE,"$33,545","2,577 mi.",Larry H. Miller Toyota Peoria,good-deal,https://www.cars.com/vehicledetail/06c962f6-60ab-477d-ae70-ea22267375b7/
+Used,2025,2025.0,Toyota Camry LE,Used 2025 Toyota Camry LE,"$25,373","26,398 mi.",Bill Luke Santan,good-deal,https://www.cars.com/vehicledetail/5b721f37-25dd-4ca0-9b1a-7c02efcf38ee/
+Used,2022,2022.0,Toyota Camry,Used 2022 Toyota Camry,"$30,150","49,725 mi.",Earnhardt Chrysler Jeep Dodge RAM,good-deal,https://www.cars.com/vehicledetail/355b8658-1b39-408c-a70e-f5056ad86777/
+Used,2024,2024.0,Toyota Camry LE,Used 2024 Toyota Camry LE,"$21,788","54,087 mi.",Right Honda,good-deal,https://www.cars.com/vehicledetail/e1180a8e-4ce7-4e74-a22b-b328d8be6091/
+Used,2021,2021.0,Toyota Camry SE,Used 2021 Toyota Camry SE,"$18,998","74,860 mi.",Showcase Honda,good-deal,https://www.cars.com/vehicledetail/5b52a83a-286b-4372-9b50-405600337835/
+Used,2024,2024.0,Toyota Camry SE,Used 2024 Toyota Camry SE,"$26,788","34,501 mi.",Berge Toyota,good-deal,https://www.cars.com/vehicledetail/4b31e8c5-dae5-452c-9191-4932d8047d9a/
+Used,2014,2014.0,Toyota Camry SE,Used 2014 Toyota Camry SE,"$9,481","156,299 mi.",Larry H. Miller Hyundai Peoria,good-deal,https://www.cars.com/vehicledetail/0cef57af-3c44-4652-8e35-bf930332833f/
+Used,2024,2024.0,Toyota Camry LE,Used 2024 Toyota Camry LE,"$25,851","13,196 mi.",Audi North Scottsdale,good-deal,https://www.cars.com/vehicledetail/9d10e2ed-70fe-4c7f-b144-02649e289f85/
+Used,2023,2023.0,Toyota Camry LE,Used 2023 Toyota Camry LE,"$20,989","49,158 mi.",CardinaleWay Mazda Mesa,great-deal,https://www.cars.com/vehicledetail/e7ae3a24-860d-4bdc-a2a2-9c9abcf96339/
+Used,2023,2023.0,Toyota Camry SE,Used 2023 Toyota Camry SE,"$24,891","37,676 mi.",AutoNation Chevrolet Arrowhead,good-deal,https://www.cars.com/vehicledetail/34661e7f-dec2-46fa-9b8f-3289913b1a4f/
+Used,2025,2025.0,Toyota Camry SE,Used 2025 Toyota Camry SE,"$28,987","26,693 mi.",Bell Road Mitsubishi,great-deal,https://www.cars.com/vehicledetail/4ae77e66-2516-456d-a17d-1bf840d5037a/
+Used,2025,2025.0,Toyota Camry XSE,Used 2025 Toyota Camry XSE,"$33,900","6,719 mi.",Earnhardt Lexus,great-deal,https://www.cars.com/vehicledetail/fb810ace-89b4-4b2d-a8f5-c43d97ea73f0/
+Used,2025,2025.0,Toyota Camry SE,Used 2025 Toyota Camry SE,"$30,077","15,066 mi.",CardinaleWay Mazda Peoria,great-deal,https://www.cars.com/vehicledetail/4d7c5d30-0376-4837-983b-7e82ec41b4e4/
+Used,2025,2025.0,Toyota Camry LE,Used 2025 Toyota Camry LE,"$28,173","29,403 mi.",Bill Luke Tempe,great-deal,https://www.cars.com/vehicledetail/fad0d6c2-9318-4cd0-a7e9-b791c2260859/
+Used,2025,2025.0,Toyota Camry SE,Used 2025 Toyota Camry SE,"$30,984","4,780 mi.",Pinnacle Nissan,good-deal,https://www.cars.com/vehicledetail/facb1148-6e3d-4036-9647-66e84170b3d5/
+Used,2024,2024.0,Toyota Camry LE,Used 2024 Toyota Camry LE,"$22,987","38,350 mi.",Ken Garff Kia Avondale,great-deal,https://www.cars.com/vehicledetail/7e00aedd-6c8b-4801-8918-3fa4214673b2/
+Used,2016,2016.0,Toyota Camry SE,Used 2016 Toyota Camry SE,"$11,992","145,574 mi.",Mark Kia,good-deal,https://www.cars.com/vehicledetail/42f689a9-d6a9-4732-bc64-55c2ad8c5c36/
+Used,2023,2023.0,Toyota Camry LE,Used 2023 Toyota Camry LE,"$24,585","46,469 mi.",Airpark Dodge Chrysler Jeep RAM,good-deal,https://www.cars.com/vehicledetail/9b593352-ee8f-4e6e-ae05-8db7bbb7d954/
+Used,2024,2024.0,Toyota Camry,Used 2024 Toyota Camry,"$25,500","37,226 mi.",Larry H. Miller Dodge RAM Peoria,good-deal,https://www.cars.com/vehicledetail/0e74072f-3190-4848-b35a-9708d59e7c9a/
+Used,2024,2024.0,Toyota Camry XSE,Used 2024 Toyota Camry XSE,"$32,998","27,103 mi.",CarMax Costa Mesa,good-deal,https://www.cars.com/vehicledetail/e595d1a4-16e7-4206-b06e-6e336152d491/?attribution_type=ship
+Used,2023,2023.0,Toyota Camry XSE,Used 2023 Toyota Camry XSE,"$32,998","42,560 mi.",CarMax Henderson,good-deal,https://www.cars.com/vehicledetail/9349d264-589f-4891-b665-b33f24506110/?attribution_type=ship
+Used,2025,2025.0,Toyota Camry XSE,Used 2025 Toyota Camry XSE,"$33,981","26,050 mi.",Earnhardt Toyota,great-deal,https://www.cars.com/vehicledetail/67084071-d020-41d2-a053-7d74996d3807/
+Used,2020,2020.0,Toyota Camry SE,Used 2020 Toyota Camry SE,"$17,300","89,000 mi.",Runway Auto,good-deal,https://www.cars.com/vehicledetail/4a38c8e5-f56b-4884-a739-9508698c8257/
+Used,2017,2017.0,Toyota Camry SE,Used 2017 Toyota Camry SE,"$12,891","121,533 mi.",Ideal Cars,good-deal,https://www.cars.com/vehicledetail/71be0f12-9b85-4033-a99f-01e79206ce62/
+Used,2020,2020.0,Toyota Camry SE,Used 2020 Toyota Camry SE,"$21,095","61,575 mi.",DriveTime of Mesa,great-deal,https://www.cars.com/vehicledetail/d9b29965-f0a6-4a60-b763-509fcf3fc126/
+Used,2021,2021.0,Toyota Camry SE,Used 2021 Toyota Camry SE,"$24,998","45,658 mi.",CarMax Phoenix-West Valley,good-deal,https://www.cars.com/vehicledetail/cb8e2bba-7dfe-4212-9346-2e2462bfecd4/
+Used,2024,2024.0,Toyota Camry LE,Used 2024 Toyota Camry LE,"$25,380","7,582 mi.",Honda of Superstition Springs,good-deal,https://www.cars.com/vehicledetail/19715207-698e-48ef-896d-5599fc71adf8/
+Used,2020,2020.0,Toyota Camry SE,Used 2020 Toyota Camry SE,"$21,995","57,112 mi.",Rollit Motors,good-deal,https://www.cars.com/vehicledetail/f4929897-a755-4136-b0e4-b7fa7d21e763/
+Used,2024,2024.0,Toyota Camry SE,Used 2024 Toyota Camry SE,"$20,997","49,238 mi.",EchoPark Automotive Phoenix,good-deal,https://www.cars.com/vehicledetail/0e998d1c-d25d-4425-80f8-93d0eda9ed05/
+Used,2020,2020.0,Toyota Camry XSE,Used 2020 Toyota Camry XSE,"$20,448","106,501 mi.",AutoNation USA Phoenix Avondale,good-deal,https://www.cars.com/vehicledetail/62105a65-3206-400e-8f9d-36acfa57b5a3/
+Certified,2022,2022.0,Toyota Camry LE,Certified 2022 Toyota Camry LE,"$22,491","43,774 mi.",Toyota of Surprise,good-deal,https://www.cars.com/vehicledetail/61f1f175-d4e7-42bd-ae94-2335a321bf53/
+Used,2025,2025.0,Toyota Camry LE,Used 2025 Toyota Camry LE,"$22,474","52,563 mi.",Hertz Car Sales Phoenix Bell Rd,good-deal,https://www.cars.com/vehicledetail/aa543d0c-a58b-4569-8031-66408a1bc64c/
+Used,2018,2018.0,Toyota Camry SE,Used 2018 Toyota Camry SE,"$17,595","106,819 mi.",DriveTime of North Phoenix,good-deal,https://www.cars.com/vehicledetail/41e89f73-95d7-4376-8b84-ffc40ef63e26/
+Used,2020,2020.0,Toyota Camry SE,Used 2020 Toyota Camry SE,"$20,998","82,220 mi.",CarMax Phoenix-Gilbert,good-deal,https://www.cars.com/vehicledetail/9da738d1-a5fe-4079-adca-ca8aa138a351/
+Used,2021,2021.0,Toyota Camry SE,Used 2021 Toyota Camry SE,"$20,495","79,200 mi.",DriveTime of Glendale,great-deal,https://www.cars.com/vehicledetail/71452f30-53d0-4d97-a3d8-9a3f1235c36c/
+Used,2024,2024.0,Toyota Camry SE,Used 2024 Toyota Camry SE,"$21,999","53,963 mi.",Volvo Cars Arrowhead,good-deal,https://www.cars.com/vehicledetail/2272badf-6527-42aa-b58e-b784c2421c75/
+Used,2023,2023.0,Toyota Camry LE,Used 2023 Toyota Camry LE,"$22,995","43,137 mi.",Mark Mazda,good-deal,https://www.cars.com/vehicledetail/51a223f6-fec5-49ef-b7d8-416856f7d25f/
+Used,2024,2024.0,Toyota Camry XSE,Used 2024 Toyota Camry XSE,"$31,466","41,918 mi.",101 AUTO OUTLET,good-deal,https://www.cars.com/vehicledetail/6dfc1a98-a443-4707-b53c-a32f7b786e83/
+Used,2021,2021.0,Toyota Camry XSE,Used 2021 Toyota Camry XSE,"$25,991","78,186 mi.",Scottsdale Mitsubishi,good-deal,https://www.cars.com/vehicledetail/c03f65d5-6def-430d-b6a9-eff307be821b/
+Used,2025,2025.0,Toyota Camry LE,Used 2025 Toyota Camry LE,"$23,452","42,202 mi.",Hertz Car Sales Scottsdale,great-deal,https://www.cars.com/vehicledetail/40d0b2a9-7a13-4084-8212-358cec6a05e5/
+Used,2017,2017.0,Toyota Camry LE,Used 2017 Toyota Camry LE,"$13,495","112,974 mi.",Fine Cars LLC,good-deal,https://www.cars.com/vehicledetail/0d633f3a-3e48-4684-aa06-6e6e0611ca54/
+Used,2022,2022.0,Toyota Camry LE,Used 2022 Toyota Camry LE,"$23,290","33,623 mi.",Coulter Tempe,good-deal,https://www.cars.com/vehicledetail/60d7a71e-62e3-4346-bc5d-f3917d0dc603/
+Used,2024,2024.0,Toyota Camry SE,Used 2024 Toyota Camry SE,"$24,999","37,206 mi.",SAG Auto Sales,good-deal,https://www.cars.com/vehicledetail/3a4e57c2-357e-4319-92ef-4d931d7c7139/
+Used,2018,2018.0,Toyota Camry LE,Used 2018 Toyota Camry LE,"$21,998","27,336 mi.",CarMax Oceanside,good-deal,https://www.cars.com/vehicledetail/e537a0f8-a494-465a-a7e9-cd0e18162c0b/?attribution_type=ship
+Used,2018,2018.0,Toyota Camry XLE,Used 2018 Toyota Camry XLE,"$24,998","23,730 mi.",CarMax Oceanside,good-deal,https://www.cars.com/vehicledetail/827b3a84-f68c-494a-8c9f-868dbc2de389/?attribution_type=ship
+Used,2021,2021.0,Toyota Camry SE,Used 2021 Toyota Camry SE,"$19,995","109,469 mi.",Brown & Brown Wholesale,good-deal,https://www.cars.com/vehicledetail/15a35727-d8f5-407d-9a68-b2349f80684d/
+Used,2021,2021.0,Toyota Camry SE,Used 2021 Toyota Camry SE,"$20,495","69,262 mi.",Legend Autos LLC,good-deal,https://www.cars.com/vehicledetail/c41567b3-e45b-42e5-9237-690f956425e2/
+Used,2022,2022.0,Toyota Camry SE,Used 2022 Toyota Camry SE,"$20,995","57,245 mi.",Munich Motors,good-deal,https://www.cars.com/vehicledetail/52893777-84ef-4db3-9956-173f6ed83068/
+Used,2019,2019.0,Toyota Camry LE,Used 2019 Toyota Camry LE,"$17,892","103,026 mi.",I-10 Automotive Group,good-deal,https://www.cars.com/vehicledetail/7106dbd7-26b8-470c-90e3-87336d74a7c8/
+Used,2024,2024.0,Toyota Camry XSE,Used 2024 Toyota Camry XSE,"$32,900","5,722 mi.",Americas Best Auto,good-deal,https://www.cars.com/vehicledetail/46c5f253-dd9a-49c7-940f-e11942e0cff5/
+Used,2022,2022.0,Toyota Camry SE,Used 2022 Toyota Camry SE,"$18,491","92,369 mi.",Ideal Cars East Main (Atlas),good-deal,https://www.cars.com/vehicledetail/fa344c8d-4dae-4b16-81a5-430b8d237a1d/
+Used,2019,2019.0,Toyota Camry SE,Used 2019 Toyota Camry SE,"$15,675","117,045 mi.",AutoTrust AZ,great-deal,https://www.cars.com/vehicledetail/4f77e793-6a07-490b-a293-c83693fe0894/
+Used,2024,2024.0,Toyota Camry LE,Used 2024 Toyota Camry LE,"$21,500","41,899 mi.",DV Auto Center,good-deal,https://www.cars.com/vehicledetail/794f3aad-5512-41d1-bb99-83ead836a6eb/
+Used,2012,2012.0,Toyota Camry XLE,Used 2012 Toyota Camry XLE,"$12,495","126,742 mi.",SNB Motors,fair-deal,https://www.cars.com/vehicledetail/dc1f7ecb-e850-4a86-9141-87a17adc2df7/
+Certified,2026,2026.0,Toyota Camry XSE,Certified 2026 Toyota Camry XSE,"$35,956",431 mi.,Right Toyota,great-deal,https://www.cars.com/vehicledetail/d029f0cc-7320-43cc-ab0e-813f53ac439f/
+Used,2023,2023.0,Toyota Camry LE,Used 2023 Toyota Camry LE,"$26,975","25,279 mi.",Big Two Toyota of Chandler,good-deal,https://www.cars.com/vehicledetail/d73512b8-39a9-47fd-872c-038fc12069dd/
+Used,2020,2020.0,Toyota Camry TRD,Used 2020 Toyota Camry TRD,"$25,573","96,273 mi.",Bill Luke Chrysler Jeep Dodge RAM,fair-deal,https://www.cars.com/vehicledetail/fec091f3-7396-45e4-86cc-1ad9b8a92aa3/
+Used,2018,2018.0,Toyota Camry SE,Used 2018 Toyota Camry SE,"$16,581","103,343 mi.",Arrowhead BMW,good-deal,https://www.cars.com/vehicledetail/bf1be0b4-9685-46c5-a596-80a9dc00c36c/
+Certified,2022,2022.0,Toyota Camry SE,Certified 2022 Toyota Camry SE,"$24,981","75,148 mi.",Avondale Toyota,good-deal,https://www.cars.com/vehicledetail/01b32eec-a6b9-4542-aabd-f88c58f4e36c/
+Certified,2025,2025.0,Toyota Camry XSE,Certified 2025 Toyota Camry XSE,"$36,488","3,359 mi.",Camelback Toyota,good-deal,https://www.cars.com/vehicledetail/6d0a0848-6bfa-44e3-9921-dc5b2b3db035/
+Certified,2025,2025.0,Toyota Camry SE,Certified 2025 Toyota Camry SE,"$32,481","21,614 mi.",Avondale Toyota,good-deal,https://www.cars.com/vehicledetail/9504e4d7-5eca-46da-9558-c4354065546c/
+Certified,2025,2025.0,Toyota Camry XSE,Certified 2025 Toyota Camry XSE,"$30,549","68,368 mi.",Larry H. Miller Toyota Peoria,good-deal,https://www.cars.com/vehicledetail/078ad37b-1e84-491e-8eee-d93d7770bd5b/
+Used,2025,2025.0,Toyota Camry SE,Used 2025 Toyota Camry SE,"$33,173","8,408 mi.",Bill Luke Santan,good-deal,https://www.cars.com/vehicledetail/b3a6017e-580c-4434-9703-f78e9e363b90/
+Used,2023,2023.0,Toyota Camry SE,Used 2023 Toyota Camry SE,"$24,988","63,631 mi.",Berge Toyota,good-deal,https://www.cars.com/vehicledetail/97c4b853-a081-4add-9dee-0aa4db1e40ab/
+Used,2023,2023.0,Toyota Camry XSE,Used 2023 Toyota Camry XSE,"$25,947","65,379 mi.",AutoNation Toyota Tempe,good-deal,https://www.cars.com/vehicledetail/950b7094-e7d1-432e-b28b-e7208ff1d174/
+Used,2021,2021.0,Toyota Camry,Used 2021 Toyota Camry,"$21,999","63,904 mi.",Earnhardt Chrysler Jeep Dodge RAM,good-deal,https://www.cars.com/vehicledetail/b40f8599-749a-40cd-9990-7c135f9c85f7/
+Used,2023,2023.0,Toyota Camry XSE,Used 2023 Toyota Camry XSE,"$24,689","60,332 mi.",Right Honda,good-deal,https://www.cars.com/vehicledetail/7e0b960b-afe7-4057-b688-249b8e82138e/
+Used,2021,2021.0,Toyota Camry SE,Used 2021 Toyota Camry SE,"$24,998","28,259 mi.",CarMax Oceanside,good-deal,https://www.cars.com/vehicledetail/dbb226f3-4fb4-4c3b-b620-9d4ef8d835af/?attribution_type=ship
+Used,2023,2023.0,Toyota Camry SE,Used 2023 Toyota Camry SE,"$26,998","29,464 mi.",CarMax El Paso,good-deal,https://www.cars.com/vehicledetail/eecf6453-8ad8-449f-a688-34588c999f09/?attribution_type=ship
+Used,2023,2023.0,Toyota Camry LE,Used 2023 Toyota Camry LE,"$23,004","64,215 mi.",Airpark Dodge Chrysler Jeep RAM,good-deal,https://www.cars.com/vehicledetail/a3ea6971-4959-4615-a61c-38240aee0237/
+Used,2025,2025.0,Toyota Camry LE,Used 2025 Toyota Camry LE,"$25,973","26,841 mi.",Bill Luke Tempe,great-deal,https://www.cars.com/vehicledetail/3be41b5d-359d-44e4-8ccb-81a98c16ccec/
+Used,2025,2025.0,Toyota Camry SE,Used 2025 Toyota Camry SE,"$31,981","19,290 mi.",Earnhardt Toyota,good-deal,https://www.cars.com/vehicledetail/c8da24ad-d0e2-4a02-bdb2-aec8677a8909/
+Used,2022,2022.0,Toyota Camry LE,Used 2022 Toyota Camry LE,"$20,500","78,625 mi.",Rollit Motors,good-deal,https://www.cars.com/vehicledetail/1eba40df-3207-47d9-bdce-42b684c736f1/
+Used,2023,2023.0,Toyota Camry LE,Used 2023 Toyota Camry LE,"$19,491","64,195 mi.",Ideal Cars,great-deal,https://www.cars.com/vehicledetail/659a6b96-138f-46cc-b147-3f3e4418daf6/
+Certified,2025,2025.0,Toyota Camry XSE,Certified 2025 Toyota Camry XSE,"$37,406","4,290 mi.",Toyota of Surprise,good-deal,https://www.cars.com/vehicledetail/35d94503-7812-41b5-a42c-0c07cd1d6396/
+Used,2023,2023.0,Toyota Camry SE,Used 2023 Toyota Camry SE,"$22,760","59,214 mi.",AutoNation USA Phoenix Avondale,good-deal,https://www.cars.com/vehicledetail/f7ea78f2-4713-4608-9b21-f7bdfc62b3c7/
+Used,2016,2016.0,Toyota Camry XSE,Used 2016 Toyota Camry XSE,"$14,998","117,841 mi.",CarMax Phoenix-West Valley,good-deal,https://www.cars.com/vehicledetail/687fce38-7135-4883-b112-6561d03d2a95/
+Used,2026,2026.0,Toyota Camry XSE,Used 2026 Toyota Camry XSE,"$41,998",978 mi.,CarMax Phoenix-Gilbert,good-deal,https://www.cars.com/vehicledetail/cee1ea23-aa03-4bae-8c41-5712c0469334/
+Used,2025,2025.0,Toyota Camry LE,Used 2025 Toyota Camry LE,"$25,238","23,012 mi.",Hertz Car Sales Phoenix Bell Rd,good-deal,https://www.cars.com/vehicledetail/152dafd9-07c8-47da-82b2-97659fa9e1f4/
+Used,2018,2018.0,Toyota Camry XSE,Used 2018 Toyota Camry XSE,"$20,795","82,800 mi.",DriveTime of Glendale,good-deal,https://www.cars.com/vehicledetail/6f8bf7ef-e1af-4510-ac25-5a31c2077e4e/
+Used,2017,2017.0,Toyota Camry XLE,Used 2017 Toyota Camry XLE,"$14,988","101,653 mi.",101 AUTO OUTLET,great-deal,https://www.cars.com/vehicledetail/c9c9cdbe-e23b-4d02-aa9e-46f1895e62b1/
+Used,2025,2025.0,Toyota Camry LE,Used 2025 Toyota Camry LE,"$24,366","30,957 mi.",Hertz Car Sales Scottsdale,good-deal,https://www.cars.com/vehicledetail/cf270657-6235-4013-8797-e5049fef6c54/
+Used,2024,2024.0,Toyota Camry LE,Used 2024 Toyota Camry LE,"$25,592","8,742 mi.",Coulter Tempe,great-deal,https://www.cars.com/vehicledetail/3d79ae43-6031-4c16-b0d0-d7869591004c/
+Certified,2025,2025.0,Toyota Camry LE,Certified 2025 Toyota Camry LE,"$23,875","36,492 mi.",Right Toyota,great-deal,https://www.cars.com/vehicledetail/0a3d05c3-225c-470e-b5a8-7b80bda80138/
+Used,2025,2025.0,Toyota Camry SE,Used 2025 Toyota Camry SE,"$31,988","28,411 mi.",Berge Toyota,fair-deal,https://www.cars.com/vehicledetail/431041c2-006b-4824-9f79-56378452ff00/
+Certified,2025,2025.0,Toyota Camry SE,Certified 2025 Toyota Camry SE,"$33,481","13,435 mi.",Avondale Toyota,good-deal,https://www.cars.com/vehicledetail/0ee81817-80f8-4ebd-998b-d30fe0df8288/
+Used,2020,2020.0,Toyota Camry SE,Used 2020 Toyota Camry SE,"$17,888","96,205 mi.",Camelback Toyota,great-deal,https://www.cars.com/vehicledetail/7b0fe03c-595a-4093-a566-05d1bfe22ff6/
+Used,2019,2019.0,Toyota Camry XSE,Used 2019 Toyota Camry XSE,"$21,900","77,536 mi.",Rollit Motors,good-deal,https://www.cars.com/vehicledetail/16962938-b55b-4682-b1fa-e42716146295/
+Used,2024,2024.0,Toyota Camry SE,Used 2024 Toyota Camry SE,"$22,482","50,397 mi.",Rollit Motors,great-deal,https://www.cars.com/vehicledetail/5c4383df-a5fe-452b-936a-d79d273eb907/
+Used,2020,2020.0,Toyota Camry XSE,Used 2020 Toyota Camry XSE,"$23,777","66,683 mi.",Munich Motors,good-deal,https://www.cars.com/vehicledetail/2751991c-250f-440d-a24b-f3e2df83950e/
+Used,2022,2022.0,Toyota Camry SE,Used 2022 Toyota Camry SE,"$18,491","66,325 mi.",Ideal Cars,great-deal,https://www.cars.com/vehicledetail/fb006ece-4e85-4211-9fdd-83f6e707a3ea/
+Used,2023,2023.0,Toyota Camry LE,Used 2023 Toyota Camry LE,"$25,998","17,736 mi.",CarMax Henderson,good-deal,https://www.cars.com/vehicledetail/b720a2b8-5e80-4e06-a057-78ba2041ab0a/?attribution_type=ship
+Used,2025,2025.0,Toyota Camry LE,Used 2025 Toyota Camry LE,"$30,998","2,869 mi.",CarMax Tucson,good-deal,https://www.cars.com/vehicledetail/9a3c77d2-20da-4bac-8739-1fc771234182/?attribution_type=ship
