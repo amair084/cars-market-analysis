@@ -2,6 +2,8 @@
 
 import customtkinter as ctk
 from PIL import Image
+from numpy.ma.core import size
+
 from scrapers.scraper import Scrape
 from cleaner.data_clean import Clean
 from analysis.plot import Plot
@@ -17,6 +19,8 @@ class App(ctk.CTk):
     def __init__(self):
         super().__init__()
         # Application Configuration ----------
+
+        self.avggot = False
         self.title("Cars.com Market Analysis")
         self.geometry("800x465")
         self.resizable(False, False)
@@ -27,10 +31,16 @@ class App(ctk.CTk):
 
         self.brand = ctk.CTkEntry(self.mainframe)
         self.trim = ctk.CTkEntry(self.mainframe)
-        self.startbutton = ctk.CTkButton(self.mainframe, command=self.scrape, text="Analyse Listings", fg_color="#8136B2", hover_color="#AB74CF")
+        self.startbutton = ctk.CTkButton(self.mainframe, command=self.scrape, text="Analyse Listings", fg_color="#8136B2", hover_color="#AB74CF", width=150, height=30)
         self.brand.place(x=325, y=175)
         self.trim.place(x=325,y=225)
-        self.startbutton.place(x=325,y=275)
+        self.startbutton.place(x=320,y=335)
+
+        self.pagenumberentry = ctk.CTkOptionMenu(self.mainframe, values=["1","2","3","4","5"], width=120,height=20,fg_color="#3b3b3b", button_color="#8136B2", button_hover_color="#AB74CF")
+        self.pagenumberentry.place(x=335, y=288)
+
+        self.pagenumbetext = ctk.CTkLabel(self.mainframe, text="Choose # of pages to scrape")
+        self.pagenumbetext.place(x=317, y=260)
 
         logo = ctk.CTkImage(
             light_image=Image.open(resource_path("resources/logo.png")),
@@ -63,6 +73,8 @@ class App(ctk.CTk):
         self.trim.destroy()
         self.startbutton.destroy()
         self.brand.destroy()
+        self.pagenumbetext.destroy()
+        self.pagenumberentry.destroy()
 
         self.text = ctk.CTkLabel(self.mainframe, text="Completed Scraping and Cleaning..")
         self.text.place(x=310, y=150)
@@ -82,12 +94,13 @@ class App(ctk.CTk):
     # Scrape Function ----------
 
     def scrape(self):
+        pages = int(self.pagenumberentry.get())
         name = self.trim.get()
         brand = self.brand.get()
         self.name = name
         print(brand)
         print(name)
-        scraper = Scrape(brand, name)
+        scraper = Scrape(pages, brand, name)
         clean = Clean(name)
 
         self.plotmenu()
@@ -100,16 +113,24 @@ class App(ctk.CTk):
         self.pvabutton.destroy()
         self.avgbutton.destroy()
         self.text.destroy()
-        self.text2.destroy()
-        self.text3.destroy()
+        if self.avggot:
+            self.text2.destroy()
+            self.text3.destroy()
 
         self.brand = ctk.CTkEntry(self.mainframe)
         self.trim = ctk.CTkEntry(self.mainframe)
-        self.startbutton = ctk.CTkButton(self.mainframe, command=self.scrape, text="Analyse Listings")
-
+        self.startbutton = ctk.CTkButton(self.mainframe, command=self.scrape, text="Analyse Listings",
+                                         fg_color="#8136B2", hover_color="#AB74CF", width=150, height=30)
         self.brand.place(x=325, y=175)
         self.trim.place(x=325, y=225)
-        self.startbutton.place(x=325, y=275)
+        self.startbutton.place(x=320, y=335)
+
+        self.pagenumberentry = ctk.CTkOptionMenu(self.mainframe, values=["1", "2", "3", "4", "5"], width=120, height=20,
+                                                 fg_color="#3b3b3b", button_color="#8136B2", button_hover_color="#AB74CF")
+        self.pagenumberentry.place(x=335, y=288)
+
+        self.pagenumbetext = ctk.CTkLabel(self.mainframe, text="Choose # of pages to scrape")
+        self.pagenumbetext.place(x=317, y=260)
 
     def priceplot(self):
         plot = Plot(self.name)
@@ -130,6 +151,8 @@ class App(ctk.CTk):
 
         self.text3 = ctk.CTkLabel(self.mainframe, text=("$" + str(int(avg))))
         self.text3.place(x=310, y=375)
+
+        self.avggot = True
 
 
 if __name__ == "__main__":

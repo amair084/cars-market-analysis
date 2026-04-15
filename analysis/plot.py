@@ -3,9 +3,15 @@
 from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
+import sys, os
 
-current_dir = Path(__file__).parent
-data_path = current_dir.parent / "data"
+# Replace the top-level data_path with a function:
+def get_data_dir():
+    if getattr(sys, 'frozen', False):
+        base = os.path.dirname(sys.executable)
+    else:
+        base = Path(__file__).parent.parent
+    return Path(base) / "data"
 
 
 
@@ -16,7 +22,7 @@ class Plot():
 
         print(name)
 
-        self.df = pd.read_csv(data_path / f"{lname}_market_data.csv", encoding="utf-8", on_bad_lines="skip")
+        self.df = pd.read_csv(get_data_dir() / f"{lname}_market_data.csv", encoding="utf-8", on_bad_lines="skip")
         df = self.df
         df["price"] = (
             df["price"]
@@ -72,7 +78,7 @@ class Plot():
             )
 
         # Labels ---------------------
-        ax.set_title("Toyota Used Car Prices vs Mileage", fontsize=16)
+        ax.set_title("Car Prices vs Age", fontsize=16)
         ax.set_xlabel("Price ($)")
         ax.set_ylabel("Age (years)")
 

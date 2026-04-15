@@ -2,6 +2,16 @@
 
 import pandas as pd
 from pathlib import Path
+import sys, os
+
+def get_data_dir():
+    if getattr(sys, 'frozen', False):
+        base = os.path.dirname(sys.executable)
+    else:
+        base = Path(__file__).parent.parent
+    data_dir = Path(base) / "data"
+    data_dir.mkdir(exist_ok=True)
+    return data_dir
 
 
 class Clean():
@@ -10,14 +20,10 @@ class Clean():
         self.name = name
         lname = self.name.lower()
 
-        current_dir = Path(__file__).parent
-        data_path = current_dir.parent / "data"
+        data_path = get_data_dir()
 
         # Create Vars for csv files  ----------------
 
-        corolla = pd.read_csv(data_path / "corolla_market_data.csv", encoding="utf-8", on_bad_lines="skip")
-        fourrunner = pd.read_csv(data_path / "4runner_market_data.csv", encoding="utf-8", on_bad_lines="skip")
-        camry = pd.read_csv(data_path / "camry_market_data.csv", encoding="utf-8", on_bad_lines="skip")
         df = pd.read_csv(data_path / f"{lname}_market_data.csv", encoding="utf-8", on_bad_lines="skip")
 
         print(df.columns)
@@ -50,32 +56,7 @@ class Clean():
 
         df.to_csv(data_path /  f"{lname}_market_data.csv", index=False)
 
-        # Combiner  ----------------
-
-
-        # df = pd.read_csv(data_path / "toyota_combined.csv", encoding="utf-8", on_bad_lines="skip")
-        #
-        # df["price"] = (
-        #     df["price"]
-        #     .astype(int)
-        # )
-        #
-        # df["mileage"] = (
-        #     df["mileage"]
-        #     .astype(int)
-        # )
-        #
-        # df["year"] = df["year"].astype(int)
-        #
-        # df.to_csv(data_path /  "toyota_combined.csv", index=False)
-
         print(df.head())
-
-
-        #camry["model"] = "Camry"
-        #corolla["model"] = "Corolla"
-        #fourrunner["model"] = "4Runner"
-
 
 if __name__ == "__main__":
     app = Clean()

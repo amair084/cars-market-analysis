@@ -10,21 +10,37 @@ import pandas as pd
 import time
 import random
 import re
+import sys, os
+
+# Replace the current_dir / data path logic with this:
+def get_data_dir():
+    if getattr(sys, 'frozen', False):
+        base = os.path.dirname(sys.executable)
+    else:
+        base = Path(__file__).parent.parent
+    data_dir = Path(base) / "data"
+    data_dir.mkdir(exist_ok=True)
+    return data_dir
 
 # DRIVER SETUP  ----------------
 
 
 class Scrape():
-        def __init__(self, brand, name):
+        def __init__(self, pages, brand, name):
+            self.pages = pages
             self.brand = brand
             self.name = name
             lname = self.name.lower()
             lbrand = self.brand.lower()
 
-            current_dir = Path(__file__).parent
-            driver_path = current_dir.parent / "chromedriver" / "chromedriver.exe"
+            if getattr(sys, 'frozen', False):
+                driver_path = Path(os.path.dirname(sys.executable)) / "chromedriver" / "chromedriver.exe"
+            else:
+                driver_path = Path(__file__).parent.parent / "chromedriver" / "chromedriver.exe"
 
             options = webdriver.ChromeOptions()
+            options.add_argument("--headless=new")  # add this line
+            options.add_argument("--disable-gpu")  # add this line (stability on Windows)
             options.add_argument("--start-maximized")
 
             options.add_argument(
@@ -46,7 +62,7 @@ class Scrape():
             # SCRAPER SETTINGS  -------
 
             base_url = f"https://www.cars.com/shopping/{lbrand}-{lname}/?page="
-            pages_to_scrape = 1
+            pages_to_scrape = self.pages
 
             all_cars = []
 
@@ -168,8 +184,7 @@ class Scrape():
 
             df = pd.DataFrame(all_cars)
 
-            output_path = current_dir.parent / "data" / f"{lname}_market_data.csv"
-            output_path.parent.mkdir(exist_ok=True)
+            output_path = get_data_dir() / f"{lname}_market_data.csv"
 
             df.to_csv(output_path, index=False)
 
