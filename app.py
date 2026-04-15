@@ -1,13 +1,24 @@
 # Car Listing Analysis App using Cars.com - Amair084 on GitHub
+from asyncio import wait
 
 import customtkinter as ctk
 from PIL import Image
-from numpy.ma.core import size
 
 from scrapers.scraper import Scrape
 from cleaner.data_clean import Clean
 from analysis.plot import Plot
+from analysis.viewer import CSVViewer
+from pathlib import Path
 import os, sys
+
+def get_data_dir():
+    if getattr(sys, 'frozen', False):
+        base = os.path.dirname(sys.executable)
+    else:
+        base = Path(__file__).parent
+    data_dir = Path(base) / "data"
+    data_dir.mkdir(exist_ok=True)
+    return data_dir
 
 def resource_path(path):
     if getattr(sys, "frozen", False):
@@ -32,17 +43,21 @@ class App(ctk.CTk):
         self.mainframe.pack(padx=20, pady=20)
 
         self.brand = ctk.CTkEntry(self.mainframe)
+        self.brandname = ctk.CTkLabel(self.mainframe, text="Make:", height=8)
         self.trim = ctk.CTkEntry(self.mainframe)
+        self.trimname = ctk.CTkLabel(self.mainframe, text="Model:", height=8)
         self.startbutton = ctk.CTkButton(self.mainframe, command=self.scrape, text="Analyse Listings", fg_color="#8136B2", hover_color="#AB74CF", width=150, height=30)
-        self.brand.place(x=325, y=175)
-        self.trim.place(x=325,y=225)
-        self.startbutton.place(x=320,y=335)
+        self.brand.place(x=325, y=185)
+        self.brandname.place(x=375, y=166)
+        self.trim.place(x=325,y=235)
+        self.trimname.place(x=375, y=216)
+        self.startbutton.place(x=320,y=345)
 
         self.pagenumberentry = ctk.CTkOptionMenu(self.mainframe, values=["1","2","3","4","5"], width=120,height=20,fg_color="#3b3b3b", button_color="#8136B2", button_hover_color="#AB74CF")
-        self.pagenumberentry.place(x=335, y=288)
+        self.pagenumberentry.place(x=335, y=298)
 
         self.pagenumbetext = ctk.CTkLabel(self.mainframe, text="Choose # of pages to scrape")
-        self.pagenumbetext.place(x=317, y=260)
+        self.pagenumbetext.place(x=317, y=270)
 
         logo = ctk.CTkImage(
             light_image=Image.open(resource_path("resources/logo.png")),
@@ -77,25 +92,31 @@ class App(ctk.CTk):
         self.brand.destroy()
         self.pagenumbetext.destroy()
         self.pagenumberentry.destroy()
+        self.trimname.destroy()
+        self.brandname.destroy()
 
         self.text = ctk.CTkLabel(self.mainframe, text="Completed Scraping and Cleaning..")
-        self.text.place(x=310, y=150)
+        self.text.place(x=309, y=160)
 
         self.backbutton = ctk.CTkButton(self.mainframe, command=self.reset, text="Back", fg_color="#8B0000", hover_color="#FF0000")
         self.backbutton.place(x=25, y=35)
 
         self.pvmbutton = ctk.CTkButton(self.mainframe, command=self.priceplot, text="Price vs Model", fg_color="#8136B2", hover_color="#AB74CF")
-        self.pvmbutton.place(x=325, y=195)
+        self.pvmbutton.place(x=325, y=215)
 
         self.pvabutton = ctk.CTkButton(self.mainframe, command=self.ageplot, text="Price vs Age", fg_color="#8136B2", hover_color="#AB74CF")
-        self.pvabutton.place(x=325, y=240)
+        self.pvabutton.place(x=325, y=260)
 
-        self.avgbutton = ctk.CTkButton(self.mainframe, command=self.getavg, text="Average Price by Model", fg_color="#8136B2", hover_color="#AB74CF")
-        self.avgbutton.place(x=321, y=295)
+        self.viewbutton = ctk.CTkButton(self.mainframe, command=self.viewcsv,
+                                        text="View Data", fg_color="#8136B2", hover_color="#AB74CF")
+        self.viewbutton.place(x=325, y=310)
 
     # Scrape Function ----------
 
     def scrape(self):
+        self.text = ctk.CTkLabel(self.mainframe, text="Scraping has started..")
+        self.text.place(x=310, y=150)
+
         pages = int(self.pagenumberentry.get())
         name = self.trim.get()
         brand = self.brand.get()
@@ -113,26 +134,28 @@ class App(ctk.CTk):
         self.backbutton.destroy()
         self.pvmbutton.destroy()
         self.pvabutton.destroy()
-        self.avgbutton.destroy()
+        self.viewbutton.destroy()
         self.text.destroy()
-        if self.avggot:
-            self.text2.destroy()
-            self.text3.destroy()
 
         self.brand = ctk.CTkEntry(self.mainframe)
+        self.brandname = ctk.CTkLabel(self.mainframe, text="Make:", height=8)
         self.trim = ctk.CTkEntry(self.mainframe)
+        self.trimname = ctk.CTkLabel(self.mainframe, text="Model:", height=8)
         self.startbutton = ctk.CTkButton(self.mainframe, command=self.scrape, text="Analyse Listings",
                                          fg_color="#8136B2", hover_color="#AB74CF", width=150, height=30)
-        self.brand.place(x=325, y=175)
-        self.trim.place(x=325, y=225)
-        self.startbutton.place(x=320, y=335)
+        self.brand.place(x=325, y=185)
+        self.brandname.place(x=375, y=166)
+        self.trim.place(x=325, y=235)
+        self.trimname.place(x=375, y=216)
+        self.startbutton.place(x=320, y=345)
 
         self.pagenumberentry = ctk.CTkOptionMenu(self.mainframe, values=["1", "2", "3", "4", "5"], width=120, height=20,
-                                                 fg_color="#3b3b3b", button_color="#8136B2", button_hover_color="#AB74CF")
-        self.pagenumberentry.place(x=335, y=288)
+                                                 fg_color="#3b3b3b", button_color="#8136B2",
+                                                 button_hover_color="#AB74CF")
+        self.pagenumberentry.place(x=335, y=298)
 
         self.pagenumbetext = ctk.CTkLabel(self.mainframe, text="Choose # of pages to scrape")
-        self.pagenumbetext.place(x=317, y=260)
+        self.pagenumbetext.place(x=317, y=270)
 
     def priceplot(self):
         plot = Plot(self.name)
@@ -144,17 +167,9 @@ class App(ctk.CTk):
         plot.age_plot()
         print(self.name)
 
-    def getavg(self):
-        plot = Plot(self.name)
-        avg = plot.getavg()
-
-        self.text2 = ctk.CTkLabel(self.mainframe, text="Average Price of Model:")
-        self.text2.place(x=310, y=350)
-
-        self.text3 = ctk.CTkLabel(self.mainframe, text=("$" + str(int(avg))))
-        self.text3.place(x=310, y=375)
-
-        self.avggot = True
+    def viewcsv(self):
+        path = get_data_dir() / f"{self.name.lower()}_market_data.csv"
+        CSVViewer(path)
 
 
 if __name__ == "__main__":
