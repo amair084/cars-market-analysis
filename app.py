@@ -14,6 +14,8 @@ def resource_path(path):
         return os.path.join(sys._MEIPASS, path)
     return os.path.join(os.path.dirname(__file__), path)
 
+ctk.set_appearance_mode("dark")
+
 class App(ctk.CTk):
 
     def __init__(self):
