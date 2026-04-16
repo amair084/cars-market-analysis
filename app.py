@@ -1,5 +1,4 @@
 # Car Listing Analysis App using Cars.com - Amair084 on GitHub
-from asyncio import wait
 
 import customtkinter as ctk
 from PIL import Image
@@ -31,7 +30,7 @@ class App(ctk.CTk):
 
     def __init__(self):
         super().__init__()
-        # Application Configuration ----------
+        # Application Configuration ───────────────────────────────────────
 
         self.avggot = False
         self.title("Cars.com Market Analysis")
@@ -65,7 +64,7 @@ class App(ctk.CTk):
             size=(156, 173)
         )
 
-        # Credits - Amair084 ----------
+        # Credits - Amair084 ─────────────────────────────────────────────
 
         gitlogo = ctk.CTkImage(
             light_image=Image.open(resource_path("resources/gitlgoo.png")),
@@ -84,7 +83,7 @@ class App(ctk.CTk):
         gitaccount = ctk.CTkLabel(self.mainframe,text="amair084", font=("Arial", 15))
         gitaccount.place(x=50, y=386)
 
-    # Plot Menu ----------
+    # Plot Menu ─────────────────────────────────────────────
 
     def plotmenu(self):
         self.trim.destroy()
@@ -94,11 +93,13 @@ class App(ctk.CTk):
         self.pagenumberentry.destroy()
         self.trimname.destroy()
         self.brandname.destroy()
+        if self.text:
+            self.text.destroy()
 
         self.text = ctk.CTkLabel(self.mainframe, text="Completed Scraping and Cleaning..")
         self.text.place(x=309, y=160)
 
-        self.backbutton = ctk.CTkButton(self.mainframe, command=self.reset, text="Back", fg_color="#8B0000", hover_color="#FF0000")
+        self.backbutton = ctk.CTkButton(self.mainframe, command=self.reset, text="Back", fg_color="#3b3b3b", hover_color="#8B0000")
         self.backbutton.place(x=25, y=35)
 
         self.pvmbutton = ctk.CTkButton(self.mainframe, command=self.priceplot, text="Price vs Model", fg_color="#8136B2", hover_color="#AB74CF")
@@ -111,11 +112,11 @@ class App(ctk.CTk):
                                         text="View Data", fg_color="#8136B2", hover_color="#AB74CF")
         self.viewbutton.place(x=325, y=310)
 
-    # Scrape Function ----------
+    # Scrape Function ─────────────────────────────────────────────
 
     def scrape(self):
         self.text = ctk.CTkLabel(self.mainframe, text="Scraping has started..")
-        self.text.place(x=310, y=150)
+        self.text.place(x=325, y=150)
 
         pages = int(self.pagenumberentry.get())
         name = self.trim.get()
@@ -128,7 +129,7 @@ class App(ctk.CTk):
 
         self.plotmenu()
 
-    # Reset back to Original State ----------
+    # Reset back to Original State ───────────────────────────────────────────
 
     def reset(self):
         self.backbutton.destroy()

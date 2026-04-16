@@ -1,17 +1,27 @@
-import tkinter as tk
+# Car Listing Analysis CSV Viewer using Cars.com - Amair084 on GitHub
+
+import customtkinter as ctk
+from PIL import Image
 import pandas as pd
 from pathlib import Path
+import sys, os
 
-class CSVViewer(tk.Toplevel):
+def resource_path(path):
+    if getattr(sys, "frozen", False):
+        return os.path.join(sys._MEIPASS, path)
+    return os.path.join(os.path.dirname(os.path.dirname(__file__)), path)
+
+class CSVViewer(ctk.CTkToplevel):
     def __init__(self, filepath):
         super().__init__()
-        self.title("Data Viewer")
+        self.title("Cars.com Market Analysis | Data Viewer")
         self.geometry("1100x600")
-        self.configure(bg="#2b2b2b")
+        self.configure(fg_color="#2b2b2b")
+        self.iconbitmap(resource_path("resources/icon.ico"))
         self.resizable(True, True)
 
         self.filepath = filepath
-        self.df = pd.read_csv(filepath, dtype=str)  # load everything as string to avoid float width issues
+        self.df = pd.read_csv(filepath, dtype=str)
         self.sort_state = {}
         self.filtered_df = self.df.copy()
 
@@ -19,48 +29,59 @@ class CSVViewer(tk.Toplevel):
 
     def _build_ui(self):
         # ── Title bar ─────────────────────────────────────────
-        topbar = tk.Frame(self, bg="#1a1a1a", pady=10)
+        topbar = ctk.CTkFrame(self, fg_color="#1a1a1a", corner_radius=0)
         topbar.pack(fill="x")
 
-        tk.Label(topbar, text="  DATA VIEWER", bg="#1a1a1a", fg="#8136B2",
-                 font=("Courier New", 13, "bold")).pack(side="left")
+        ctk.CTkLabel(topbar, text="  Data Viewer", fg_color="#1a1a1a",
+                     text_color="#FFFFFF", font=("Arial", 13, "bold")).pack(side="left", pady=10)
 
-        tk.Label(topbar, text=f"{Path(self.filepath).name}  ",
-                 bg="#1a1a1a", fg="#666666",
-                 font=("Courier New", 10)).pack(side="right")
+        ctk.CTkLabel(topbar, text=f"{Path(self.filepath).name}  ",
+                     fg_color="#1a1a1a", text_color="#666666",
+                     font=("Courier New", 10)).pack(side="right", pady=10)
 
-        # ── Search bar ────────────────────────────────────────
-        searchbar = tk.Frame(self, bg="#2b2b2b", pady=8)
-        searchbar.pack(fill="x", padx=16)
+        # ── Search + Logo row ─────────────────────────────────
+        searchbar = ctk.CTkFrame(self, fg_color="#2b2b2b", corner_radius=0)
+        searchbar.pack(fill="x", padx=16, pady=(8, 0))
 
-        tk.Label(searchbar, text="SEARCH", bg="#2b2b2b", fg="#666666",
-                 font=("Courier New", 9, "bold")).pack(side="left", padx=(0, 8))
+        ctk.CTkLabel(searchbar, text="SEARCH", fg_color="#2b2b2b",
+                     text_color="#666666", font=("Courier New", 9, "bold")).pack(side="left", padx=(0, 8))
 
-        self.search_var = tk.StringVar()
+        self.search_var = ctk.StringVar()
         self.search_var.trace("w", self._on_search)
 
-        search_entry = tk.Entry(searchbar, textvariable=self.search_var,
-                                bg="#1a1a1a", fg="#e2e8f0", insertbackground="#8136B2",
-                                relief="flat", font=("Courier New", 11),
-                                highlightthickness=1, highlightcolor="#8136B2",
-                                highlightbackground="#444444", width=40)
-        search_entry.pack(side="left", ipady=5, padx=(0, 16))
+        search_entry = ctk.CTkEntry(searchbar, textvariable=self.search_var,
+                                    fg_color="#1a1a1a", text_color="#e2e8f0",
+                                    border_color="#8136B2", border_width=1,
+                                    font=("Courier New", 11), width=300)
+        search_entry.pack(side="left", padx=(0, 16), pady=6)
 
-        self.row_count_label = tk.Label(searchbar, bg="#2b2b2b", fg="#666666",
-                                        font=("Courier New", 9))
+        self.row_count_label = ctk.CTkLabel(searchbar, fg_color="#2b2b2b",
+                                            text_color="#666666", font=("Arial", 9), text="")
         self.row_count_label.pack(side="left")
 
+        # ── Logo ───────────────────
+        logo_img = ctk.CTkImage(
+            light_image=Image.open(resource_path("resources/icon.png")),
+            dark_image=Image.open(resource_path("resources/icon.png")),
+            size=(55, 62)
+        )
+        ctk.CTkLabel(searchbar, image=logo_img, text="",
+                     fg_color="#2b2b2b").pack(side="right", padx=(0, 9))
+
         # ── Hint ──────────────────────────────────────────────
-        tk.Label(self, text="  Click a cell to copy  •  Click a header to sort  •  ↕ cycles asc / desc / original",
-                 bg="#2b2b2b", fg="#555555", font=("Courier New", 9)).pack(anchor="w", padx=16)
+        ctk.CTkLabel(self, text="  Click a cell to copy  •  Click a header to sort  •  ↕ cycles asc / desc / original",
+                     fg_color="#2b2b2b", text_color="#555555",
+                     font=("Courier New", 9)).pack(anchor="w", padx=16)
 
         # ── Table container ───────────────────────────────────
-        container = tk.Frame(self, bg="#2b2b2b")
+        container = ctk.CTkFrame(self, fg_color="#2b2b2b", corner_radius=0)
         container.pack(fill="both", expand=True, padx=16, pady=(4, 16))
 
+        # CTk doesn't have a native scrollable canvas, so we use tk underneath
+        import tkinter as tk
         self.canvas = tk.Canvas(container, bg="#2b2b2b", highlightthickness=0)
-        vscroll = tk.Scrollbar(container, orient="vertical", command=self.canvas.yview)
-        hscroll = tk.Scrollbar(container, orient="horizontal", command=self.canvas.xview)
+        vscroll = ctk.CTkScrollbar(container, orientation="vertical", command=self.canvas.yview)
+        hscroll = ctk.CTkScrollbar(container, orientation="horizontal", command=self.canvas.xview)
 
         vscroll.pack(side="right", fill="y")
         hscroll.pack(side="bottom", fill="x")
@@ -77,23 +98,23 @@ class CSVViewer(tk.Toplevel):
         self.canvas.bind_all("<MouseWheel>", lambda e: self.canvas.yview_scroll(
             int(-1 * (e.delta / 120)), "units"))
 
-        # ── Toast ─────────────────────────────────────────────
-        self.toast = tk.Label(self, text="✓ Copied!", bg="#8136B2", fg="white",
-                              font=("Courier New", 10, "bold"), padx=12, pady=4)
+        # ── Copied toast ──────────────────────────────────────
+        self.copied = ctk.CTkLabel(self, text="✓ Copied!", fg_color="#8136B2",
+                                   text_color="white", font=("Courier New", 10, "bold"),
+                                   corner_radius=6)
 
         self._render_table()
 
     def _col_width(self, col, df):
-        """Return a safe integer character-width for a column."""
         header_len = len(str(col))
         if len(df) > 0:
             max_data_len = df[col].fillna("").astype(str).str.len().max()
         else:
             max_data_len = 0
-        # clamp between 8 and 30 characters, always an int
         return int(min(max(int(max(header_len, max_data_len)) + 2, 8), 30))
 
     def _render_table(self):
+        import tkinter as tk
         for widget in self.table_frame.winfo_children():
             widget.destroy()
 
@@ -110,7 +131,7 @@ class CSVViewer(tk.Toplevel):
                 self.table_frame,
                 text=str(col) + arrow,
                 bg="#1a1a1a", fg="#AB74CF",
-                font=("Courier New", 10, "bold"),
+                font=("Arial", 10, "bold"),
                 relief="flat", bd=0,
                 anchor="w", padx=8,
                 width=w,
@@ -132,7 +153,7 @@ class CSVViewer(tk.Toplevel):
                     self.table_frame,
                     text=val,
                     bg=row_bg, fg="#e2e8f0",
-                    font=("Courier New", 10),
+                    font=("Arial", 10),
                     relief="flat",
                     anchor="w", padx=8,
                     width=w,
@@ -146,15 +167,12 @@ class CSVViewer(tk.Toplevel):
         self._update_row_count()
 
     def _numeric_sort_key(self, col):
-        """Return a numeric series for columns that contain numbers inside strings."""
         series = self.filtered_df[col].fillna("")
-        # strip $, commas, ' mi.' etc and try converting to float
         stripped = series.str.replace(r"[^\d.]", "", regex=True)
         converted = pd.to_numeric(stripped, errors="coerce")
-        # if more than half the non-null values converted, treat as numeric
         if converted.notna().sum() > len(converted) / 2:
             return converted
-        return series  # fall back to plain string sort
+        return series
 
     def _sort_by(self, col):
         current = self.sort_state.get(col, None)
@@ -173,12 +191,10 @@ class CSVViewer(tk.Toplevel):
         key = self._numeric_sort_key(col)
 
         if isinstance(key, pd.Series) and pd.api.types.is_numeric_dtype(key):
-            # numeric sort using the extracted key
             self.filtered_df = self.filtered_df.assign(_sort_key=key.values) \
                 .sort_values("_sort_key", ascending=asc, na_position="last") \
                 .drop(columns="_sort_key")
         else:
-            # plain string sort
             self.filtered_df = self.filtered_df.sort_values(
                 col, ascending=asc, na_position="last")
 
@@ -202,13 +218,13 @@ class CSVViewer(tk.Toplevel):
         self.clipboard_clear()
         self.clipboard_append(value)
         self.update()
-        self.toast.place(relx=1.0, rely=1.0, x=-10, y=-10, anchor="se")
-        self.after(1500, self.toast.place_forget)
+        self.copied.place(relx=1.0, rely=1.0, x=-10, y=-10, anchor="se")
+        self.after(1500, self.copied.place_forget)
 
     def _update_row_count(self):
         total = len(self.df)
         showing = len(self.filtered_df)
         if showing == total:
-            self.row_count_label.config(text=f"{total} rows")
+            self.row_count_label.configure(text=f"{total} rows")
         else:
-            self.row_count_label.config(text=f"{showing} of {total} rows")
+            self.row_count_label.configure(text=f"{showing} of {total} rows")

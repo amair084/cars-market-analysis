@@ -22,14 +22,14 @@ class Clean():
 
         data_path = get_data_dir()
 
-        # Create Vars for csv files  ----------------
+        # Create Vars for csv files  ───────────────────────────────
 
         df = pd.read_csv(data_path / f"{lname}_market_data.csv", encoding="utf-8", on_bad_lines="skip")
 
         print(df.columns)
         print(df.head())
 
-        # Clean Data  ----------------
+        # Clean Data  ─────────────────────────────────────────────
 
         df["condition"] = df["year"]
 

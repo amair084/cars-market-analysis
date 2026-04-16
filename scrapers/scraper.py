@@ -22,7 +22,7 @@ def get_data_dir():
     data_dir.mkdir(exist_ok=True)
     return data_dir
 
-# DRIVER SETUP  ----------------
+# DRIVER SETUP  ───────────────────────────────────────
 
 
 class Scrape():
@@ -59,14 +59,14 @@ class Scrape():
                 "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})"
             )
 
-            # SCRAPER SETTINGS  -------
+            # SCRAPER SETTINGS  ───────────────────
 
             base_url = f"https://www.cars.com/shopping/{lbrand}-{lname}/?page="
             pages_to_scrape = self.pages
 
             all_cars = []
 
-            # PAGE LOOP  ---------------
+            # PAGE LOOP  ──────────────────────────
 
             def safe_find(element, by, value):
                 try:
@@ -81,7 +81,8 @@ class Scrape():
 
                 driver.get(url)
 
-                # refresh logic if page fails
+                # refresh if page fails :(
+                # sometimes it doesnt work though cause cloudflare doesnt let me connect, not sure what to do about that though.
                 for attempt in range(3):
                     try:
 
@@ -102,7 +103,7 @@ class Scrape():
                 listings = driver.find_elements(By.CSS_SELECTOR, "[data-listing-id]")
                 print("Listings found:", len(listings))
 
-            # LISTING LOOP  ----------------
+            # LISTING LOOP  ───────────────────────────
 
                 for car in listings:
 
@@ -176,11 +177,11 @@ class Scrape():
 
                 time.sleep(random.uniform(4, 7))
 
-            # CLEANUP -----------------
+            # CLEANUP ────────────────────────────
 
             driver.quit()
 
-            # SAVE DATA ----------------
+            # SAVE DATA ──────────────────────────
 
             df = pd.DataFrame(all_cars)
 
