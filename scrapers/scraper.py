@@ -61,7 +61,7 @@ class Scrape():
 
             # SCRAPER SETTINGS  ───────────────────
 
-            base_url = f"https://www.cars.com/shopping/{lbrand}-{lname}/?page="
+            base_url = f"https://www.cars.com/shopping/{lbrand}-{lname}/?stock_type=all&page="
             pages_to_scrape = self.pages
 
             all_cars = []
