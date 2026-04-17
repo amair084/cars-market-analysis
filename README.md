@@ -118,7 +118,7 @@ The built-in viewer supports:
 To package the app into a standalone `.exe`:
 
 ```bash
-python -m PyInstaller --onefile --windowed --icon=resources/icon.ico --add-data "resources;resources" main.py
+python -m PyInstaller --onefile --windowed --icon=resources/icon.ico --add-data "resources;resources" app.py
 ```
 
 The output will be in `dist/`. Place `chromedriver/` next to the `.exe` before distributing. The `data/` folder is created automatically next to the `.exe` on first run.
