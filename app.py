@@ -58,13 +58,13 @@ class App(ctk.CTk):
         self.pagenumbetext = ctk.CTkLabel(self.mainframe, text="Choose # of pages to scrape")
         self.pagenumbetext.place(x=317, y=270)
 
+        # add logos and github logo in bottom left
+
         logo = ctk.CTkImage(
             light_image=Image.open(resource_path("resources/logo.png")),
             dark_image=Image.open(resource_path("resources/logo.png")),
             size=(156, 173)
         )
-
-        # Credits - Amair084 ─────────────────────────────────────────────
 
         gitlogo = ctk.CTkImage(
             light_image=Image.open(resource_path("resources/gitlgoo.png")),
